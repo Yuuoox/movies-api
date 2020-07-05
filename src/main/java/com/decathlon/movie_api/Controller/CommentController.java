@@ -5,6 +5,7 @@ import com.decathlon.movie_api.Model.Movie;
 import com.decathlon.movie_api.Repository.CommentRepository;
 import com.decathlon.movie_api.Repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,13 +20,9 @@ public class CommentController {
     @Autowired
     private MovieRepository movieRepo ;
 
-  /*  @GetMapping
-    public List<Comment> findAll(){
-        return commentRepo.findAll();
-    }*/
-
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public List<Comment> findByMovieId(@RequestParam(required = false) String movieId) throws Exception {
+    public List<Comment> find(@RequestParam(required = false) String movieId) throws Exception {
         if(movieId == null)
             return commentRepo.findAll();
         Movie movie = movieRepo.findById(Integer.parseInt(movieId));
@@ -34,6 +31,7 @@ public class CommentController {
         return commentRepo.findAllByMovie(movie);
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Comment addComment(@RequestBody Comment comment) throws Exception {
         Movie movie = movieRepo.findById(comment.getMovie().getId());

@@ -36,7 +36,7 @@ public class MovieController {
     }
 
     @DeleteMapping(value = "/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteMovie(@PathVariable int id) throws Exception {
         try {
             movieRepo.deleteById(id);
