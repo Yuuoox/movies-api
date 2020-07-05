@@ -1,7 +1,7 @@
 # movies-api
 
 ## Subject
-This project is a REST API in JAVA with Spring Boot. It permit to fetch a movie from another API (http://www.omdbapi.com) and save this one in the local database. We can get data from a movie saved in local database, update it, and delete it (CRUD operation).
+This project is a REST API in JAVA with Spring Boot. It permit to fetch a movie from another API (http://www.omdbapi.com) and save this one in the local database. We can get data from a movie saved in local database, update, and delete (CRUD operation).
 
 ## Technologies
 - Java 12
