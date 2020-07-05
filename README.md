@@ -38,7 +38,7 @@ You should be able to see the current version :
 ![alt text](https://zupimages.net/up/20/27/rgzk.png)
 
 ## Configure MySQL database
-You have to configure your database MySQL access in a first time. To do this, you must go to this file : 
+You have to configure your database MySQL access in a first time. To do this, you have to edit this file : 
 ```
 src/main/resources/application.properties
 ```
