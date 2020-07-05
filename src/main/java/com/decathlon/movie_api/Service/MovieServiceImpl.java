@@ -23,6 +23,5 @@ public class MovieServiceImpl implements MovieService {
     public Movie update(Movie movieToUpdate, MovieDto movieDto) {
         movieMapper.updateMovieFromDto(movieDto, movieToUpdate);
         return movieRepo.save(movieToUpdate);
-
     }
 }

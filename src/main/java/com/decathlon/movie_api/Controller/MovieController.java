@@ -49,13 +49,11 @@ public class MovieController {
     @PutMapping(value= "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Movie updateMovie(@PathVariable int id, @RequestBody MovieDto movieBody) throws IllegalAccessException {
-        System.out.println(movieBody);
         Movie updateMovie = movieRepo.findById(id);
         if(updateMovie == null){
             return null ;
         }
         movieBody.setId(id);
         return movieService.update(updateMovie, movieBody);
-
     }
 }

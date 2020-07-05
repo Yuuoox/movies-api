@@ -1,5 +1,6 @@
 package com.decathlon.movie_api.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.Cascade;
 
@@ -88,6 +89,11 @@ public class Movie implements Serializable {
     @JsonProperty("Website")
     private String website;
 
+    @JsonProperty("Comments")
+    @OneToMany
+    @JsonManagedReference
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<Comment> commentList ;
 
     public Movie() {
     }
@@ -292,5 +298,47 @@ public class Movie implements Serializable {
         this.website = website;
     }
 
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
 
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
+
+    public void addCommentToList(Comment comment){
+        this.commentList.add(comment);
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", year=" + year +
+                ", rated='" + rated + '\'' +
+                ", released='" + released + '\'' +
+                ", language='" + language + '\'' +
+                ", country='" + country + '\'' +
+                ", runtime='" + runtime + '\'' +
+                ", actors='" + actors + '\'' +
+                ", genre='" + genre + '\'' +
+                ", director='" + director + '\'' +
+                ", writer='" + writer + '\'' +
+                ", plot='" + plot + '\'' +
+                ", awards='" + awards + '\'' +
+                ", poster='" + poster + '\'' +
+                ", ratingList=" + ratingList +
+                ", metascore='" + metascore + '\'' +
+                ", imdbRating='" + imdbRating + '\'' +
+                ", imdbVotes='" + imdbVotes + '\'' +
+                ", imdbID='" + imdbID + '\'' +
+                ", type='" + type + '\'' +
+                ", dvd='" + dvd + '\'' +
+                ", boxOffice='" + boxOffice + '\'' +
+                ", production='" + production + '\'' +
+                ", website='" + website + '\'' +
+                ", commentList=" + commentList +
+                '}';
+    }
 }
